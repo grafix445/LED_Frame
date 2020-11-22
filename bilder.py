@@ -4,7 +4,6 @@ import sys
 import os, os.path
 import argparse
 from rpi_ws281x import PixelStrip, Color
-import pygame
 from PIL import Image, ImageSequence
 import time
 from Bilder import bilder_import
@@ -61,15 +60,6 @@ def shutdown(strip):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0,0,0))
         strip.show()
-
-def button_aktivieren(auswahl_gif, sound):
-            image = bilder_import.gif(auswahl_gif)
-            
-            pygame.mixer.init()
-            pygame.mixer.music.load('/home/pi/Desktop/LED_Frame/' + sound)
-            pygame.mixer.music.play()
-            while pygame.mixer.music.get_busy() == True:
-                gif_aktivieren(strip, image)
             
 
 
